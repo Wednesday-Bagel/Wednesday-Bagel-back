@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class QuestionImage {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="question_id")
+    @Column(name ="questionImage_id")
     private Long id;
 
     @Column(nullable = false)
