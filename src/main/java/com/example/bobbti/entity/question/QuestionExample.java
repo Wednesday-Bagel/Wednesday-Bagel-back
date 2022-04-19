@@ -1,4 +1,4 @@
-package com.example.bobbti.entity;
+package com.example.bobbti.entity.question;
 
 import javax.persistence.Embeddable;
 

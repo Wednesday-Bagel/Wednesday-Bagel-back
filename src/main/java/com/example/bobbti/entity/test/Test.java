@@ -1,6 +1,7 @@
-package com.example.bobbti.entity;
+package com.example.bobbti.entity.test;
 
 
+import com.example.bobbti.entity.question.Question;
 import lombok.Getter;
 
 import javax.persistence.*;

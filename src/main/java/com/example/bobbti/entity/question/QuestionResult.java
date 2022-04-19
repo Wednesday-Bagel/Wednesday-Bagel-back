@@ -1,5 +1,6 @@
-package com.example.bobbti.entity;
+package com.example.bobbti.entity.question;
 
+import com.example.bobbti.entity.test.Test;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -17,7 +18,11 @@ public class QuestionResult {
     private Test test_id;
     private String name;
 
-    private String type;
+    @Column(nullable = false)
+    private String resultTitle;
+    @Column(nullable = false)
+    private String resultDescribe;
+
     private Integer answer1;
     private Integer answer2;
     private Integer answer3;
@@ -31,6 +36,8 @@ public class QuestionResult {
     private Integer answer11;
     private Integer answer12;
 
+    private String perfectMatch;
+    private String badMatch;
     /**
      * image
      */

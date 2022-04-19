@@ -1,4 +1,4 @@
-package com.example.bobbti.entity;
+package com.example.bobbti.entity.question;
 
 import lombok.Getter;
 
@@ -24,7 +24,7 @@ public class QuestionImage {
     @Column(nullable = false)
     private String originName;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "question_id")
     private Question question;
 

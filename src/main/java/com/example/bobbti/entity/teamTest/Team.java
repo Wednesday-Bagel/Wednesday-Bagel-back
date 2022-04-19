@@ -1,4 +1,4 @@
-package com.example.bobbti.entity;
+package com.example.bobbti.entity.teamTest;
 
 
 import javax.persistence.*;
@@ -14,7 +14,10 @@ public class Team {
     private String link;
 
     @Column(nullable = false)
-    private String result;
+    private String resultTitle;
+
+    @Column(nullable = false)
+    private String resultDescribe;
 
     /**
      * image
