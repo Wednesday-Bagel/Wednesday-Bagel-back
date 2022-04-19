@@ -13,10 +13,9 @@ public class QuestionResult {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "test_id")
     private Test test_id;
-    private String name;
 
     @Column(nullable = false)
     private String resultTitle;

@@ -2,9 +2,12 @@ package com.example.bobbti.entity.test;
 
 
 import com.example.bobbti.entity.question.Question;
+import com.example.bobbti.entity.question.QuestionResult;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Entity
@@ -23,6 +26,9 @@ public class Test {
 
     @OneToOne(optional = false, fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
     private Question question;
+
+    @OneToMany(mappedBy = "test", cascade = CascadeType.ALL)
+    private List<QuestionResult> questionResult = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private TestStatus testStatus;

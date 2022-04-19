@@ -5,6 +5,7 @@ import com.example.bobbti.entity.test.Test;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,7 +23,7 @@ public class Question {
     private QuestionExample questionExamples;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
-    private List<QuestionImage> images;
+    private List<QuestionImage> images = new ArrayList<>();
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "test_id")
