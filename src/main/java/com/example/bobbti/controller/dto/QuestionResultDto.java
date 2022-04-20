@@ -33,28 +33,4 @@ public class QuestionResultDto {
     private String questionResultImagePath;
     private String questionResultImageOriginName;
 
-
-    public QuestionResultDto(QuestionResult questionResult){
-        this.id = questionResult.getId();
-        this.test_id = 0L;
-        this.resultTitle = questionResult.getResultTitle();
-        this.resultDescribe = questionResult.getResultDescribe();
-        this.answer1 = questionResult.getAnswer1();
-        this.answer2 = questionResult.getAnswer2();
-        this.answer3 = questionResult.getAnswer3();
-        this.answer4 = questionResult.getAnswer4();
-        this.answer5 = questionResult.getAnswer5();
-        this.answer6 = questionResult.getAnswer6();
-        this.answer7 = questionResult.getAnswer7();
-        this.answer8 = questionResult.getAnswer8();
-        this.answer9 = questionResult.getAnswer9();
-        this.answer10 = questionResult.getAnswer10();
-        this.answer11 = questionResult.getAnswer11();
-        this.answer12 = questionResult.getAnswer12();
-        this.perfectMatch = questionResult.getPerfectMatch();
-        this.badMatch = questionResult.getBadMatch();
-        this.questionResultImageName = questionResult.getQuestionResultImageName();
-        this.questionResultImagePath = questionResult.getQuestionResultImagePath();
-        this.questionResultImageOriginName = questionResult.getQuestionResultImageOriginName();
-    }
 }
