@@ -1,6 +1,14 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username:
-    password:
-    url:
+    username: demo_jpa
+    password: rkskekfk3!
+    url: jdbc:mysql://127.0.0.1:3306/demo_jpa_schema
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    format_sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect

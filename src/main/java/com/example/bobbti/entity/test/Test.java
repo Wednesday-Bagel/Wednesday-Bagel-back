@@ -27,7 +27,7 @@ public class Test {
     @OneToOne(optional = false, fetch = FetchType.LAZY, mappedBy = "test", cascade = CascadeType.ALL)
     private Question question;
 
-    @OneToMany(mappedBy = "test", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "test_id", cascade = CascadeType.ALL)
     private List<QuestionResult> questionResult = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
