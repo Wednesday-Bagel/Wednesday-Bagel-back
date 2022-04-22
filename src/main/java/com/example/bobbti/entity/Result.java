@@ -12,9 +12,8 @@ public class Result {
     @Column(name = "result_id")
     private Long id;
 
-    @Column()
     private String title;
-    private String describe;
+    private String detail;
     private String image;
 
 }
