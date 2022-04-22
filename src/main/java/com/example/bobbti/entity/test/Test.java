@@ -30,7 +30,7 @@ public class Test {
     @OneToMany(mappedBy = "test_id", cascade = CascadeType.ALL)
     private List<QuestionResult> questionResult = new ArrayList<>();
 
-    @Enumerated(EnumType.STRING)
-    private TestStatus testStatus;
+//    @Enumerated(EnumType.STRING)
+//    private TestStatus testStatus;
 
 }
