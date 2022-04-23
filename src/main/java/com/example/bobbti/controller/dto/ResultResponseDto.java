@@ -10,7 +10,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TeamResultDto {
+public class ResultResponseDto {
+    private Long id;
     private String name;
     private String title;
     private String subtitle;
@@ -20,7 +21,8 @@ public class TeamResultDto {
     private String badMatch;
     private String questionResultImageName;
 
-    public TeamResultDto(String name, Result result){
+    public ResultResponseDto(Long id, String name, Result result){
+        this.id = id;
         this.name = name;
         this.title = result.getTitle();
         this.subtitle = result.getSubtitle();
