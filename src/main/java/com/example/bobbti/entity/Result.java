@@ -12,6 +12,7 @@ public class Result {
     @Column(name = "result_id")
     private Long id;
 
+    @Column(nullable = false)
     private String title;
     private String detail;
     private String image;

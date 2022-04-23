@@ -12,6 +12,7 @@ public class Team {
     @Column(name = "team_id")
     private Long id;
 
+    @Column(nullable = false)
     private String name;
     private String code;
 
