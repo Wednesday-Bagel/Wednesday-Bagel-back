@@ -12,9 +12,13 @@ public class Result {
     @Column(name = "result_id")
     private Long id;
 
-    @Column(nullable = false)
     private String title;
+    private String subtitle;
     private String detail;
+    private String tip;
+    private String perfectMatch;
+    private String badMatch;
+
     private String image;
 
 }

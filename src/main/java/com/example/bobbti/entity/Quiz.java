@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Quiz {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     private String question;
     private String answerChoice1;
