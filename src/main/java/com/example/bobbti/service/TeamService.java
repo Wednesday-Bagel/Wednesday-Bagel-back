@@ -1,6 +1,6 @@
 package com.example.bobbti.service;
 
-import com.example.bobbti.controller.dto.TeamResultDto;
+import com.example.bobbti.controller.dto.ResultResponseDto;
 import com.example.bobbti.entity.Result;
 import com.example.bobbti.entity.Team;
 import com.example.bobbti.repository.QuizResultRepository;
@@ -43,7 +43,7 @@ public class TeamService {
     }
 
 
-    public List<TeamResultDto> readAllByTeamCode(String teamcode){
+    public List<ResultResponseDto> readAllByTeamCode(String teamcode){
         // team에서 teamcode로 team 알아내고
         Team team = this.teamRepository.findByCode(teamcode)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -52,15 +52,16 @@ public class TeamService {
         // quizresult에서 team으로 모두 불러오기
         // quizResults 돌면서 name, result 불러와서 TeamResultDto 만들고
         // List<TeamResultDto> 에 저장하기
-        List<TeamResultDto> teamResultDtos = new ArrayList<>();
+        List<ResultResponseDto> resultResponseDtos = new ArrayList<>();
         this.quizResultRepository.findAllByTeam(team).forEach(
                 quizResult -> {
+                    Long id = quizResult.getId();
                     Result result = quizResult.getResult();
-                    teamResultDtos.add(new TeamResultDto(quizResult.getName(), result));
+                    resultResponseDtos.add(new ResultResponseDto(id, quizResult.getName(), result));
                 }
         );
 
-        return teamResultDtos;
+        return resultResponseDtos;
     }
 
     public String makeCode(){
