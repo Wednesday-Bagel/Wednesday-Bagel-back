@@ -24,6 +24,7 @@ public class Result {
     private String perfectMatch;
     private String badMatch;
 
+    @Column(columnDefinition = "TEXT")
     private String image;
 
     public Result(ResultDto resultDto){
