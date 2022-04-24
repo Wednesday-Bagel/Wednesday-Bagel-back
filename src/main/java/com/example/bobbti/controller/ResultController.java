@@ -18,8 +18,10 @@ public class ResultController {
     private final ResultService resultService;
 
     @GetMapping
-    public ResponseEntity<Collection<QuizDto>> readAll(){
-        return ResponseEntity.ok(this.quizService.readAll());
+    public ResponseEntity<Collection<QuizDto>> readAll(
+            @RequestParam(value = "team", required = false) String teamCode
+    ){
+        return ResponseEntity.ok(this.quizService.readAll(teamCode));
     }
     @PostMapping
     public ResponseEntity<?> createRequest(

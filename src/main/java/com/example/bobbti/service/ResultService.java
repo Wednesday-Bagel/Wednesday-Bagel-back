@@ -55,10 +55,10 @@ public class ResultService {
 
         StringBuilder sb = new StringBuilder();
 
-        sb.append(score[0] + score[1] + score[2] > 0 ? "E" : "I");
-        sb.append(score[3] + score[4] + score[5] > 0 ? "N" : "S");
-        sb.append(score[6] + score[7] + score[8] > 0 ? "F" : "T");
-        sb.append(score[9] + score[10] + score[11] > 0 ? "P" : "J");
+        sb.append(score[0] + score[1] + score[2] > 0 ? "e" : "i");
+        sb.append(score[3] + score[4] + score[5] > 0 ? "n" : "s");
+        sb.append(score[6] + score[7] + score[8] > 0 ? "f" : "t");
+        sb.append(score[9] + score[10] + score[11] > 0 ? "p" : "j");
 
         return sb.toString();
     }
