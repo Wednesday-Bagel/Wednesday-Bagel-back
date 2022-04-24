@@ -28,10 +28,9 @@ public class TeamController {
     ){
         String teamCode = this.teamService.createTeam(teamNameDto.getTeamName());
 
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest().queryParam("team", teamCode).buildAndExpand().toUri();
+        URI location = ServletUriComponentsBuilder.fromUriString("http://3.39.80.110:8080/result").queryParam("team", teamCode).buildAndExpand().toUri();
 
-        // ex) http://localhost:8080/home?team=kg20sxqFv0
+        // ex) http://3.39.80.110:8080/result?team=kg20sxqFv0
         return ResponseEntity.created(location).build();
     }
 
