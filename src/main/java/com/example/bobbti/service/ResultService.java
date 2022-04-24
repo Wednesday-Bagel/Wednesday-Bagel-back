@@ -30,7 +30,7 @@ public class ResultService {
 
 
         // TODO dto에 id 들어갈 수 있게 만들어주세요!
-        return new ResultResponseDto(id, userRequestDto.getName(), result);
+        return new ResultResponseDto(0L, userRequestDto.getName(), result);
     }
 
     public String findMBTI(List<Integer> answers){

@@ -37,7 +37,7 @@ public class TeamController {
     }
 
     // team code로 팀 불러오기
-    @GetMapping("/result")
+    @GetMapping
     public ResponseEntity<?> readTeamByCode(
             @RequestParam("team") String teamCode
     ){
