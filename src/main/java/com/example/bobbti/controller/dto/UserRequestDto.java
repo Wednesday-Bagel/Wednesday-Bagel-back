@@ -14,7 +14,7 @@ import java.util.List;
 public class UserRequestDto {
 
     private String name;
-    private String teamname;
+
     private String teamcode;
 
     private List<Integer> answers;
