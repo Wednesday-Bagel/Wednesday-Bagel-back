@@ -11,7 +11,6 @@ import java.net.URI;
 import java.util.Random;
 
 @RestController
-@RequestMapping("home")
 public class TeamController {
 
     private final TeamRepository teamRepository;
@@ -23,7 +22,7 @@ public class TeamController {
     }
 
     // team code 생성하기
-    @PostMapping
+    @PostMapping("home")
     public ResponseEntity<?> createTeamCode(
             @RequestBody TeamNameDto teamNameDto
     ){
@@ -37,7 +36,7 @@ public class TeamController {
     }
 
     // team code로 팀 불러오기
-    @GetMapping
+    @GetMapping("result")
     public ResponseEntity<?> readTeamByCode(
             @RequestParam("team") String teamCode
     ){
