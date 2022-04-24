@@ -35,8 +35,8 @@ public class ResultService {
         QR.setName(userRequestDto.getName());
         QR.setResult(result);
         Optional<Team> teamOptional = this.teamRepository.findByCode(userRequestDto.getTeamcode());
-        Team team = teamOptional.get();
-        QR.setTeam(team);
+
+        QR.setTeam(teamOptional.isEmpty() ? null : teamOptional.get());
         quizResultRepository.save(QR);
         // id 
         Long id = QR.getId();
