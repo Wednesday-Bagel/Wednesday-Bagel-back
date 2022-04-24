@@ -2,21 +2,26 @@ package com.example.bobbti.service;
 
 import com.example.bobbti.controller.dto.ResultResponseDto;
 import com.example.bobbti.controller.dto.UserRequestDto;
+import com.example.bobbti.entity.QuizResult;
 import com.example.bobbti.entity.Result;
+import com.example.bobbti.entity.Team;
+import com.example.bobbti.repository.QuizResultRepository;
 import com.example.bobbti.repository.ResultRepository;
+import com.example.bobbti.repository.TeamRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ResultService {
     private final ResultRepository resultRepository;
-
-    public ResultService(ResultRepository resultRepository) {
-        this.resultRepository = resultRepository;
-    }
+    private final TeamRepository teamRepository;
+    private final QuizResultRepository quizResultRepository;
 
     public ResultResponseDto findResult(UserRequestDto userRequestDto) {
 
@@ -26,11 +31,16 @@ public class ResultService {
         Result result = this.resultRepository.findById(resultId+1)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
-        // TODO QuizResult 저장
-
-
-        // TODO dto에 id 들어갈 수 있게 만들어주세요!
-        return new ResultResponseDto(0L, userRequestDto.getName(), result);
+        QuizResult QR = new QuizResult();
+        QR.setName(userRequestDto.getName());
+        QR.setResult(result);
+        Optional<Team> teamOptional = this.teamRepository.findByCode(userRequestDto.getTeamcode());
+        Team team = teamOptional.get();
+        QR.setTeam(team);
+        quizResultRepository.save(QR);
+        // id 
+        Long id = QR.getId();
+        return new ResultResponseDto(id, userRequestDto.getName(), result);
     }
 
     public String findMBTI(List<Integer> answers){
