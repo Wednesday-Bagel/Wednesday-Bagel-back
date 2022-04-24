@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.Random;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class TeamController {
 
@@ -26,9 +26,11 @@ public class TeamController {
     public ResponseEntity<?> createTeamCode(
             @RequestBody TeamNameDto teamNameDto
     ){
-        String teamCode = this.teamService.createTeam(teamNameDto.getTeamName());
+        String teamCode = this.teamService.createTeam(teamNameDto.getTeamname());
 
-        URI location = ServletUriComponentsBuilder.fromUriString("http://3.39.80.110:8080/result").queryParam("team", teamCode).buildAndExpand().toUri();
+//        URI location = ServletUriComponentsBuilder.fromUriString("http://3.39.80.110:8080/result").queryParam("team", teamCode).buildAndExpand().toUri();
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest().queryParam("team", teamCode).buildAndExpand().toUri();
 
         // ex) http://3.39.80.110:8080/result?team=kg20sxqFv0
         return ResponseEntity.created(location).build();

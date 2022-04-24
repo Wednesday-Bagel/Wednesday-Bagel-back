@@ -11,5 +11,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class TeamNameDto {
 
-    private String teamName;
+    private String teamname;
 }
