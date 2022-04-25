@@ -36,11 +36,18 @@ public class ResultService {
         QR.setResult(result);
         Optional<Team> teamOptional = this.teamRepository.findByCode(userRequestDto.getTeamcode());
 
-        QR.setTeam(teamOptional.isEmpty() ? null : teamOptional.get());
+        String teamname = "";
+        if(teamOptional.isEmpty()){
+            QR.setTeam(null);
+        }else{
+            QR.setTeam(teamOptional.get());
+            teamname = teamOptional.get().getName();
+        }
+
         quizResultRepository.save(QR);
         // id 
         Long id = QR.getId();
-        return new ResultResponseDto(id, userRequestDto.getName(), result);
+        return new ResultResponseDto(id, teamname, userRequestDto.getName(), result);
     }
 
     public String findMBTI(List<Integer> answers){

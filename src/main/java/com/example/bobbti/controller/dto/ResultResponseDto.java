@@ -12,6 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ResultResponseDto {
     private Long id;
+    private String teamname;
     private String name;
     private String title;
     private String subtitle;
@@ -21,8 +22,9 @@ public class ResultResponseDto {
     private String badMatch;
     private String questionResultImageName;
 
-    public ResultResponseDto(Long id, String name, Result result){
+    public ResultResponseDto(Long id, String teamname, String name, Result result){
         this.id = id;
+        this.teamname = teamname;
         this.name = name;
         this.title = result.getTitle();
         this.subtitle = result.getSubtitle();

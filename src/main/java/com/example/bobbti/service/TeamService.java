@@ -57,7 +57,8 @@ public class TeamService {
                 quizResult -> {
                     Long id = quizResult.getId();
                     Result result = quizResult.getResult();
-                    resultResponseDtos.add(new ResultResponseDto(id, quizResult.getName(), result));
+                    String teamname = quizResult.getTeam().getName();
+                    resultResponseDtos.add(new ResultResponseDto(id, teamname, quizResult.getName(), result));
                 }
         );
 
