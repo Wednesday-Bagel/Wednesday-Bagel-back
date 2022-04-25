@@ -1,5 +1,6 @@
 package com.example.bobbti.controller;
 
+import com.example.bobbti.controller.dto.TeamCodeDto;
 import com.example.bobbti.controller.dto.TeamNameDto;
 import com.example.bobbti.repository.TeamRepository;
 import com.example.bobbti.service.TeamService;
@@ -28,12 +29,7 @@ public class TeamController {
     ){
         String teamCode = this.teamService.createTeam(teamNameDto.getTeamname());
 
-//        URI location = ServletUriComponentsBuilder.fromUriString("http://3.39.80.110:8080/result").queryParam("team", teamCode).buildAndExpand().toUri();
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest().queryParam("team", teamCode).buildAndExpand().toUri();
-
-        // ex) http://3.39.80.110:8080/result?team=kg20sxqFv0
-        return ResponseEntity.created(location).build();
+        return ResponseEntity.ok(new TeamCodeDto(teamCode));
     }
 
     // team code로 팀 불러오기
