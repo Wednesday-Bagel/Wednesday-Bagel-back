@@ -15,7 +15,7 @@ public class UserRequestDto {
 
     private String name;
 
-    private String teamcode;
+    private String teamCode;
 
     private List<Integer> answers;
 

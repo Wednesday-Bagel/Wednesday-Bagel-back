@@ -34,20 +34,20 @@ public class ResultService {
         QuizResult QR = new QuizResult();
         QR.setName(userRequestDto.getName());
         QR.setResult(result);
-        Optional<Team> teamOptional = this.teamRepository.findByCode(userRequestDto.getTeamcode());
+        Optional<Team> teamOptional = this.teamRepository.findByCode(userRequestDto.getTeamCode());
 
-        String teamname = "";
+        String teamName = "";
         if(teamOptional.isEmpty()){
             QR.setTeam(null);
         }else{
             QR.setTeam(teamOptional.get());
-            teamname = teamOptional.get().getName();
+            teamName = teamOptional.get().getName();
         }
 
         quizResultRepository.save(QR);
         // id 
         Long id = QR.getId();
-        return new ResultResponseDto(id, teamname, userRequestDto.getName(), result);
+        return new ResultResponseDto(id, teamName, userRequestDto.getName(), result);
     }
 
     public String findMBTI(List<Integer> answers){

@@ -27,7 +27,7 @@ public class TeamController {
     public ResponseEntity<?> createTeamCode(
             @RequestBody TeamNameDto teamNameDto
     ){
-        String teamCode = this.teamService.createTeam(teamNameDto.getTeamname());
+        String teamCode = this.teamService.createTeam(teamNameDto.getTeamName());
 
         return ResponseEntity.ok(new TeamCodeDto(teamCode));
     }

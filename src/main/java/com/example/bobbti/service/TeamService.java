@@ -43,9 +43,9 @@ public class TeamService {
     }
 
 
-    public List<ResultResponseDto> readAllByTeamCode(String teamcode){
-        // team에서 teamcode로 team 알아내고
-        Team team = this.teamRepository.findByCode(teamcode)
+    public List<ResultResponseDto> readAllByTeamCode(String teamCode){
+        // team에서 teamCode로 team 알아내고
+        Team team = this.teamRepository.findByCode(teamCode)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         Long teamId = team.getId();
 
@@ -57,8 +57,8 @@ public class TeamService {
                 quizResult -> {
                     Long id = quizResult.getId();
                     Result result = quizResult.getResult();
-                    String teamname = quizResult.getTeam().getName();
-                    resultResponseDtos.add(new ResultResponseDto(id, teamname, quizResult.getName(), result));
+                    String teamName = quizResult.getTeam().getName();
+                    resultResponseDtos.add(new ResultResponseDto(id, teamName, quizResult.getName(), result));
                 }
         );
 
