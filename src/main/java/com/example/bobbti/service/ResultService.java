@@ -1,5 +1,6 @@
 package com.example.bobbti.service;
 
+import com.example.bobbti.controller.dto.ResultDto;
 import com.example.bobbti.controller.dto.ResultResponseDto;
 import com.example.bobbti.controller.dto.UserRequestDto;
 import com.example.bobbti.entity.QuizResult;
@@ -23,7 +24,7 @@ public class ResultService {
     private final TeamRepository teamRepository;
     private final QuizResultRepository quizResultRepository;
 
-    public ResultResponseDto findResult(UserRequestDto userRequestDto) {
+    public ResultDto findResult(UserRequestDto userRequestDto) {
 
         String mbti = findMBTI(userRequestDto.getAnswers());
         Long resultId = findResultId(mbti);
@@ -47,7 +48,7 @@ public class ResultService {
         quizResultRepository.save(QR);
         // id 
         Long id = QR.getId();
-        return new ResultResponseDto(null, teamName, userRequestDto.getTeamCode(), id, userRequestDto.getName(), result);
+        return new ResultDto(id, userRequestDto.getName(), result);
     }
 
     public String findMBTI(List<Integer> answers){

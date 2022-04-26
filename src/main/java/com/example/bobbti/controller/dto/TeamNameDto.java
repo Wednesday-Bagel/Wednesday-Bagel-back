@@ -12,4 +12,5 @@ import lombok.Setter;
 public class TeamNameDto {
 
     private String teamName;
+//    private String teamCode;
 }
