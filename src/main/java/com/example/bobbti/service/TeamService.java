@@ -1,6 +1,6 @@
 package com.example.bobbti.service;
 
-import com.example.bobbti.controller.dto.TeamResultDto;
+import com.example.bobbti.controller.dto.ResultDto;
 import com.example.bobbti.controller.dto.ResultResponseDto;
 import com.example.bobbti.entity.Result;
 import com.example.bobbti.entity.Team;
@@ -56,7 +56,7 @@ public class TeamService {
         this.quizResultRepository.findAllByTeam(team).forEach(
                 quizResult -> {
                     Result result = quizResult.getResult();
-                    resultResponseDto.getResultDtos().add(new TeamResultDto(quizResult.getId(), quizResult.getName(), result));
+                    resultResponseDto.getResultDtos().add(new ResultDto(quizResult.getId(), quizResult.getName(), result));
                 }
         );
 

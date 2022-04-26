@@ -17,13 +17,13 @@ public class ResultResponseDto {
     private Long id;
     private String teamName;
     private String teamCode;
-    private List<TeamResultDto> resultDtos = new ArrayList<>();
+    private List<ResultDto> resultDtos = new ArrayList<>();
 
     public ResultResponseDto(Long id, String teamName,String teamCode,Long memberId, String name, Result result){
         this.id = id;
         this.teamName = teamName;
         this.teamCode = teamCode;
-        this.resultDtos.add(new TeamResultDto(memberId, name, result));
+        this.resultDtos.add(new ResultDto(memberId, name, result));
     }
 }
 
