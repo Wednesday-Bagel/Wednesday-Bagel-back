@@ -1,5 +1,6 @@
 package com.example.bobbti.service;
 
+import com.example.bobbti.controller.dto.TeamResultDto;
 import com.example.bobbti.controller.dto.ResultResponseDto;
 import com.example.bobbti.entity.Result;
 import com.example.bobbti.entity.Team;
@@ -9,8 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 @Service
@@ -43,26 +42,25 @@ public class TeamService {
     }
 
 
-    public List<ResultResponseDto> readAllByTeamCode(String teamCode){
+    public ResultResponseDto readAllByTeamCode(String teamCode){
         // team에서 teamCode로 team 알아내고
         Team team = this.teamRepository.findByCode(teamCode)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         Long teamId = team.getId();
 
-        // quizresult에서 team으로 모두 불러오기
-        // quizResults 돌면서 name, result 불러와서 TeamResultDto 만들고
-        // List<TeamResultDto> 에 저장하기
-        List<ResultResponseDto> resultResponseDtos = new ArrayList<>();
+        ResultResponseDto resultResponseDto = new ResultResponseDto();
+
+        resultResponseDto.setId(teamId);
+        resultResponseDto.setTeamName(team.getName());
+        resultResponseDto.setTeamCode(team.getCode());
         this.quizResultRepository.findAllByTeam(team).forEach(
                 quizResult -> {
-                    Long id = quizResult.getId();
                     Result result = quizResult.getResult();
-                    String teamName = quizResult.getTeam().getName();
-                    resultResponseDtos.add(new ResultResponseDto(id, teamName, quizResult.getName(), result));
+                    resultResponseDto.getResultDtos().add(new TeamResultDto(quizResult.getId(), quizResult.getName(), result));
                 }
         );
 
-        return resultResponseDtos;
+        return resultResponseDto;
     }
 
     public String makeCode(){

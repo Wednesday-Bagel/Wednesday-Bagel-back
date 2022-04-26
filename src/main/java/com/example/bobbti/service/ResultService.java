@@ -47,7 +47,7 @@ public class ResultService {
         quizResultRepository.save(QR);
         // id 
         Long id = QR.getId();
-        return new ResultResponseDto(id, teamName, userRequestDto.getName(), result);
+        return new ResultResponseDto(null, teamName, userRequestDto.getTeamCode(), id, userRequestDto.getName(), result);
     }
 
     public String findMBTI(List<Integer> answers){

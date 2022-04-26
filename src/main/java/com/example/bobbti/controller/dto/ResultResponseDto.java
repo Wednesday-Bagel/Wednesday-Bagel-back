@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -13,25 +16,14 @@ import lombok.Setter;
 public class ResultResponseDto {
     private Long id;
     private String teamName;
-    private String name;
-    private String title;
-    private String subtitle;
-    private String detail;
-    private String tip;
-    private String perfectMatch;
-    private String badMatch;
-    private String questionResultImageName;
+    private String teamCode;
+    private List<TeamResultDto> resultDtos = new ArrayList<>();
 
-    public ResultResponseDto(Long id, String teamName, String name, Result result){
+    public ResultResponseDto(Long id, String teamName,String teamCode,Long memberId, String name, Result result){
         this.id = id;
         this.teamName = teamName;
-        this.name = name;
-        this.title = result.getTitle();
-        this.subtitle = result.getSubtitle();
-        this.detail = result.getDetail();
-        this.tip = result.getTip();
-        this.perfectMatch = result.getPerfectMatch();
-        this.badMatch = result.getBadMatch();
-        this.questionResultImageName = result.getImage();
+        this.teamCode = teamCode;
+        this.resultDtos.add(new TeamResultDto(memberId, name, result));
     }
 }
+
