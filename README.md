@@ -24,7 +24,7 @@
 ### Front-End   
   TypeScript, React, Recoil, Axios, Tailwind CSS   
 ### Infra   
-  AWS EC2, Nginx 
+  AWS EC2, AWS RDS, Nginx 
     
    
 ## 📂 프로젝트 구조
