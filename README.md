@@ -67,5 +67,5 @@
 
 ### 7. 팀으로하기 결과 갤러리보드 업데이트
 ![07_팀으로하기 결과 갤러리보드 업데이트](https://user-images.githubusercontent.com/43941336/165535631-5ddc6a59-849b-452d-b340-c877e875eabd.gif)
-<br />
+<br /><br />
 <a href="https://www.freepik.com/vectors/portrait-illustration">Portrait illustration vector created by pikisuperstar</a>
